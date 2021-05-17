@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <mate charest="utf-8" />
+    <title>Hello world!</title>
+  </head>
+  <body>
+    <h1>User List</h1>
+    <ul>
+      {{#each users}}
+      <li>No: {{this.no}}</li>
+      <li>Firstname: {{this.firstname}}</li>
+      <li>Lastname: {{this.lastname}}</li>
+      <li>Gender: {{this.gender}}</li>
+      <li>Birthday: {{this.birthday}}</li>
+      <li>Note: {{this.note}}</li>
+      <br />
+      {{/each}}
+    </ul>
+  </body>
+</html>
