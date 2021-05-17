@@ -3,19 +3,32 @@
   <head>
     <mate charest="utf-8" />
     <title>Hello world!</title>
+    <link type="text/css" rel="stylesheet" href="../public/bootstrap.min.css"></link>
   </head>
   <body>
-    <h1>User List</h1>
-    <ul>
-      {{#each users}}
-      <li>No: {{this.no}}</li>
-      <li>Firstname: {{this.firstname}}</li>
-      <li>Lastname: {{this.lastname}}</li>
-      <li>Gender: {{this.gender}}</li>
-      <li>Birthday: {{this.birthday}}</li>
-      <li>Note: {{this.note}}</li>
-      <br />
-      {{/each}}
-    </ul>
+    <div class="container">
+      <table class="table table-striped">
+        <tr>
+          <td style="width: 200px;">No</td>
+          <td>Firstname</td>
+          <td>Lastname</td>
+          <td>Gender</td>
+          <td>Birthday</td>
+          <td>Note</td>
+          <td>Image</td>
+        </tr>
+        {{#each users}}
+        <tr>
+          <td style="width: 200px;">{{this.no}}</td>
+          <td>{{this.firstname}}</td>
+          <td>{{this.lastname}}</td>
+          <td>{{this.gender}}</td>
+          <td>{{this.birthday}}</td>
+          <td>{{this.note}}</td>
+          <td><img src="../public/logo.png"></td>
+        </tr>
+        {{/each}}
+      </table>
+    </div>
   </body>
 </html>
