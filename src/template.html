@@ -3,7 +3,6 @@
   <head>
     <mate charest="utf-8" />
     <title>Hello world!</title>
-    <link type="text/css" rel="stylesheet" href="../public/bootstrap.min.css"></link>
     <style type="text/css">
       .blueline{
         height: 5px;
@@ -51,12 +50,21 @@
     </style>
   </head>
   <body>
-
-  <!--   <div style="margin : 0 auto; width: 80%">
-      <table><tr><td style="width: 400px;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 640 640"><path d="M494.782 340.02c-.803-81.025 66.084-119.907 69.072-121.832-37.595-54.993-96.167-62.552-117.037-63.402-49.843-5.032-97.242 29.362-122.565 29.362-25.253 0-64.277-28.607-105.604-27.85-54.32.803-104.4 31.594-132.403 80.245C29.81 334.457 71.81 479.58 126.816 558.976c26.87 38.882 58.914 82.56 100.997 81 40.512-1.594 55.843-26.244 104.848-26.244 48.993 0 62.753 26.245 105.64 25.406 43.606-.803 71.232-39.638 97.925-78.65 30.887-45.12 43.548-88.75 44.316-90.994-.969-.437-85.029-32.634-85.879-129.439l.118-.035zM414.23 102.178C436.553 75.095 451.636 37.5 447.514-.024c-32.162 1.311-71.163 21.437-94.253 48.485-20.729 24.012-38.836 62.28-33.993 99.036 35.918 2.8 72.591-18.248 94.926-45.272l.036-.047z"/></svg></td><td style="width: 400px; text-align: right;"><span style="color: black; font-size: 25px;"><span style="font-weight: bold;">NYC DEFT OF DE</span><br><span style="color: black; font-size: 25px;">PS 105</span></td></tr></table>
-    </div> -->
-
+    {{#each users}}
     <div style="margin : 0 auto; width: 80%">
+      <table>
+        <tr>
+          <td style="width: 300px;">
+            <img src="http://localhost/pdf/logo.jpg" width="116px" height="80px" />
+          </td>
+          <td style="width: 500px; text-align: right;">
+            <span style="color: black; font-size: 25px;">
+              <span style="font-weight: bold;">{{this.client_name}}</span><br>
+              <span style="color: black; font-size: 17px;">{{this.client_group_name}}</span>
+            </span>
+          </td>
+        </tr>
+      </table>
 
       <div class="blueline"></div>
       <div class="bluebox"><span class="fontbox">STEP 1</span></div>
@@ -67,17 +75,18 @@
             <span style="color: black; font-size: 25px;">Scan QR code with</span><br>
             <span style="color: black; font-size: 25px;">phone camera</span><br><br>
             <h3 style="font-weight: bold; color: rgb(0, 164,224);">OR VISIT:</h3>
-            <span style="color: black; font-size: 25px; font-weight: bold;">http:/rover-labs.com/register</span><br>
+            <span style="color: black; font-size: 25px; font-weight: bold;">http://register.rover-labs.com</span><br>
             
           </td>
-          <td><img src="https://chart.googleapis.com/chart?cht=qr&chl=Hello+World&chs=160x160&chld=L|0" class="qr-code img-thumbnail img-responsive qr-position" /></td>
+          <td>
+            <img src="https://chart.googleapis.com/chart?cht=qr&chl={{this.qr_code_url}}&chs=160x160&chld=L|0" class="qr-code img-thumbnail img-responsive" />
+          </td>
         </tr>
-       
       </table>
       <table>
        <tr>
           <td><span style="margin-right:15px;color: black; font-size: 25px;">and enter your <span style="font-weight: bold;">TEST ID:</span></span></td>
-          <td><span style="position:relative; padding: 8px; background-color: #F1F1F2; color: #C5342F; font-size: 45px; font-weight: bold;">720ab9280258</span></td>
+          <td><span style="position:relative; padding: 8px; background-color: #F1F1F2; color: #C5342F; font-size: 45px; font-weight: bold;">{{this.test_id}}</span></td>
         </tr>
       </table>
       <br><br>
@@ -87,7 +96,7 @@
       <table>
        <tr>
           <td><span style="margin-right:15px;color: black; font-size: 25px;">Enter your security code:</span></td>
-          <td><span style="position:relative; padding: 8px; background-color: #F1F1F2; color: #C5342F; font-size: 45px; font-weight: bold;">4391</span></td>
+          <td><span style="position:relative; padding: 8px; background-color: #F1F1F2; color: #C5342F; font-size: 45px; font-weight: bold;">{{this.code}}</span></td>
         </tr>
       </table>
       <br><br>
@@ -102,29 +111,22 @@
           </td>
         </tr>
       </table><br><br>
+      
       <div style="width: 100%; height: 180px; border: 3px #DCDDDE solid"></div>
-      <!-- <table class="table table-striped">
+      <table style="margin-top: 10px;">
         <tr>
-          <td style="width: 200px;">No</td>
-          <td>Firstname</td>
-          <td>Lastname</td>
-          <td>Gender</td>
-          <td>Birthday</td>
-          <td>Note</td>
-          <td>Image</td>
+          <td style="width: 400px;">
+            <img src="http://localhost/pdf/footer.png" width="170px" height="60px" />
+          </td>
+          <td style="width: 400px; text-align: right;">
+            <span style="color: black; font-size: 25px;">
+              <span style="">BATCH:{{this.batch_number}}</span><br>
+              <span style="color: black; font-size: 25px;">{{this.sequence}} of {{this.batch_total}}</span>
+            </span>
+          </td>
         </tr>
-        {{#each users}}
-        <tr>
-          <td style="width: 200px;">{{this.no}}</td>
-          <td>{{this.firstname}}</td>
-          <td>{{this.lastname}}</td>
-          <td>{{this.gender}}</td>
-          <td>{{this.birthday}}</td>
-          <td>{{this.note}}</td>
-          <td><img src="../public/logo.png"></td>
-        </tr>
-        {{/each}}
-      </table> -->
+      </table>
     </div>
+    {{/each}}
   </body>
 </html>
